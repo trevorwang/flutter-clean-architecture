@@ -8,7 +8,7 @@ class TasksRepositoryImpl implements TasksRepository {
   TasksRepositoryImpl(this.remote);
   @override
   Future<List<Task>> getTasks() {
-    return Future.delayed(Duration(seconds: 5), () => remote.getTasks());
+    return remote.getTasks();
   }
 
   @override

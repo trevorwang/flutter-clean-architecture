@@ -1,6 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_todo/data/entity/task.dart';
 
 import 'action.dart';
 import 'state.dart';
