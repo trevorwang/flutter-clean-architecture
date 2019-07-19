@@ -34,9 +34,8 @@ class RemoteDataSource implements TasksDataSource {
   }
 
   @override
-  Future<void> saveTask(Task task) {
-    // TODO: implement saveTask
-    return null;
+  Future<Task> saveTask(Task task) {
+    return _api.saveTask(task);
   }
 
   @override

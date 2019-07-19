@@ -7,7 +7,7 @@ class Task {
   final int id;
   final String title;
   final String content;
-  final bool completed;
+  bool completed;
 
   Task({this.id, this.title, this.content, this.completed});
 

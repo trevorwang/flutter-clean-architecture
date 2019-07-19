@@ -39,4 +39,18 @@ class _TaskApi implements TaskApi {
     var value = Task.fromJson(_result.data);
     return Future.value(value);
   }
+
+  @override
+  saveTask(task) async {
+    ArgumentError.checkNotNull(task, 'task');
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = task;
+    final _result = await _dio.request('/tasks',
+        queryParameters: queryParameters,
+        options: RequestOptions(method: 'POST', headers: {}, extra: _extra),
+        data: _data);
+    var value = Task.fromJson(_result.data);
+    return Future.value(value);
+  }
 }

@@ -13,4 +13,7 @@ abstract class TaskApi {
 
   @GET("/task/{id}")
   Future<Task> getTask(@Path("id") int id);
+
+  @POST("/tasks")
+  Future<Task> saveTask(@Body() Task task);
 }
