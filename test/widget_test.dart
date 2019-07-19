@@ -31,4 +31,18 @@ void main() {
     expect(find.text("content"), findsNothing);
     expect(find.byType(Checkbox), findsNothing);
   });
+
+  testWidgets('Task list page -- loading state', (WidgetTester tester) async {
+    final delay = Duration(seconds: 2);
+    when(mockClient.fetch(any, any, any)).thenAnswer((_) {
+      final res = ResponseBody.fromString("[]", 200,
+          headers: DioHttpHeaders.fromMap({
+            HttpHeaders.contentTypeHeader: ContentType.json,
+          }));
+      return Future.delayed(delay, () => res);
+    });
+    await tester.pumpWidget(createApp());
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    await tester.pump(delay);
+  });
 }
