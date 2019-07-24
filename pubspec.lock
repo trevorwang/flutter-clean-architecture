@@ -49,7 +49,7 @@ packages:
       name: build_daemon
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "2.0.0"
   build_resolvers:
     dependency: transitive
     description:
@@ -63,7 +63,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.1"
+    version: "1.6.2"
   build_runner_core:
     dependency: transitive
     description:
@@ -262,7 +262,7 @@ packages:
       name: json_serializable
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0"
+    version: "3.1.0"
   kernel:
     dependency: transitive
     description:
@@ -305,6 +305,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.6+3"
+  mock_web_server:
+    dependency: "direct dev"
+    description:
+      name: mock_web_server
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   mockito:
     dependency: "direct main"
     description:
@@ -325,7 +332,7 @@ packages:
       name: node_preamble
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.4"
+    version: "1.4.5"
   package_config:
     dependency: transitive
     description:
@@ -435,7 +442,7 @@ packages:
       name: source_gen
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.4+2"
+    version: "0.9.4+3"
   source_map_stack_trace:
     dependency: transitive
     description:
