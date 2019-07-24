@@ -2,26 +2,14 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:mockito/mockito.dart';
 import 'package:dio/dio.dart';
+import 'data.dart';
 
 class HttpMockClient extends Mock implements HttpClientAdapter {}
 
 final mockClient = HttpMockClient();
 
 void mockTaskList() {
-  mockSuccess(json.encode([
-    {
-      "id": 100,
-      "title": "hello",
-      "content": "content",
-      "completed": true,
-    },
-    {
-      "id": 101,
-      "title": "world",
-      "content": "content",
-      "completed": false,
-    }
-  ]));
+  mockSuccess(json.encode(taskList));
 }
 
 void mockEmptyTaskList() {
@@ -29,14 +17,8 @@ void mockEmptyTaskList() {
 }
 
 Map<String, dynamic> mockTaskDetail() {
-  final task = {
-    "id": 100,
-    "title": "hello",
-    "content": "content",
-    "completed": true,
-  };
-  mockSuccess(json.encode(task));
-  return task;
+  mockSuccess(json.encode(taskDetail));
+  return taskDetail;
 }
 
 void mockSuccess(final String result) {

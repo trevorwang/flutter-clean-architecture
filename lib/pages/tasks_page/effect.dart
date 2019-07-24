@@ -1,9 +1,11 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_todo/data/tasks_repository.dart';
+import 'package:logger/logger.dart';
 import 'action.dart';
 import 'state.dart';
-import '../../injection.dart';
 
-Effect<TasksState> buildEffect() {
+final logger = Logger();
+Effect<TasksState> buildEffect(TasksRepository repo) {
   return combineEffects(<Object, Effect<TasksState>>{
     TasksAction.onLoadTasks: (Action action, Context<TasksState> ctx) {
       repo.getTasks().then((it) {
