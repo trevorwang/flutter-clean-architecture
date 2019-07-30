@@ -7,6 +7,12 @@ Reducer<TasksState> buildReducer() {
   return asReducer(
     <Object, Reducer<TasksState>>{
       TasksAction.loadTasks: _loadTasks,
+      TasksAction.clearNewInput: (state, action) {
+        return state.clone()..newTaskTitle = " ";
+      },
+      TasksAction.createTask: (state, action) {
+        return state.clone()..tasks.add(action.payload);
+      }
     },
   );
 }
