@@ -19,6 +19,12 @@ Effect<TasksState> buildEffect(TasksRepository repo) {
     },
     TasksAction.loading: (action, ctx) {
       ctx.dispatch(action);
+    },
+    TasksAction.onSaveTask: (Action action, ctx) {
+      repo.saveTask(action.payload).then((i) {
+        ctx.dispatch(TasksActionCreator.createTask(action.payload));
+        ctx.dispatch(TasksActionCreator.clearNewInput());
+      }).catchError((err) => {logger.e(err)});
     }
   });
 }
