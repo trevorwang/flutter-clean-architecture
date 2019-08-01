@@ -6,5 +6,6 @@ import 'data/source/remote/task_api.dart';
 import 'data/tasks_repository_impl.dart';
 
 final logger = Logger();
-final dio = Dio(BaseOptions(baseUrl: "http://localhost:3000"));
+final dio = Dio(
+    BaseOptions(baseUrl: "https://5d42a6e2bc64f90014a56ca0.mockapi.io/api/v1"));
 final repo = TasksRepositoryImpl(RemoteDataSource(TaskApi(dio)));

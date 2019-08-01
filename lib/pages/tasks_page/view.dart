@@ -18,28 +18,52 @@ Widget buildView(TasksState state, Dispatch dispatch, ViewService viewService) {
             itemCount: getItemCount(state),
             itemBuilder: (context, index) {
               if (index == 0) {
-                return ListTile(
-                    title: TextField(
-                  controller: TextEditingController(text: state.newTaskTitle),
-                  onSubmitted: (value) {
-                    dispatch(TasksActionCreator.onSaveTask(Task(title: value)));
-                  },
-                ));
+                return _newTaskWidget(state, dispatch);
               }
+              final i = state.tasks.length - index;
+              final task = state.tasks[i];
 
-              final task = state.tasks[index - 1];
-              return CheckboxListTile(
-                value: task.completed ?? false,
-                title: Text(task.title),
-                subtitle: Text(task.content ?? ""),
-                onChanged: (value) {
-                  task.completed = value ?? false;
-                  dispatch(TasksActionCreator.loadTasks(state.tasks));
-                },
+              return ListTile(
+                title: Row(
+                  children: <Widget>[
+                    Checkbox(
+                      value: task.completed ?? false,
+                      onChanged: (value) {
+                        task.completed = value ?? false;
+                        dispatch(TasksActionCreator.loadTasks(state.tasks));
+                      },
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          task.title,
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          task.content ?? "",
+                          style: TextStyle(color: Colors.black54),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               );
             },
           ),
   );
+}
+
+ListTile _newTaskWidget(TasksState state, Dispatch dispatch) {
+  return ListTile(
+      title: TextField(
+    controller: TextEditingController(text: state.newTaskTitle),
+    onSubmitted: (value) {
+      if (value.isNotEmpty) {
+        dispatch(TasksActionCreator.onSaveTask(Task(title: value)));
+      }
+    },
+  ));
 }
 
 int getItemCount(TasksState state) => (state.tasks?.length ?? 0) + 1;

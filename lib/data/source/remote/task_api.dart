@@ -8,12 +8,12 @@ part 'task_api.g.dart';
 abstract class TaskApi {
   factory TaskApi(Dio dio) = _TaskApi;
 
-  @GET("/tasks")
+  @GET("/todo")
   Future<List<Task>> getTasks();
 
-  @GET("/task/{id}")
+  @GET("/todo/{id}")
   Future<Task> getTask(@Path("id") int id);
 
-  @POST("/tasks")
+  @POST("/todo")
   Future<Task> saveTask(@Body() Task task);
 }

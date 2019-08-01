@@ -18,7 +18,7 @@ class _TaskApi implements TaskApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     const _data = null;
-    final _result = await _dio.request('/tasks',
+    final _result = await _dio.request('/todo',
         queryParameters: queryParameters,
         options: RequestOptions(method: 'GET', headers: {}, extra: _extra),
         data: _data);
@@ -32,7 +32,7 @@ class _TaskApi implements TaskApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     const _data = null;
-    final _result = await _dio.request('/task/$id',
+    final _result = await _dio.request('/todo/$id',
         queryParameters: queryParameters,
         options: RequestOptions(method: 'GET', headers: {}, extra: _extra),
         data: _data);
@@ -46,7 +46,7 @@ class _TaskApi implements TaskApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = task;
-    final _result = await _dio.request('/tasks',
+    final _result = await _dio.request('/todo',
         queryParameters: queryParameters,
         options: RequestOptions(method: 'POST', headers: {}, extra: _extra),
         data: _data);
