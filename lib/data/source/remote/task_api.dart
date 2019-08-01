@@ -12,8 +12,11 @@ abstract class TaskApi {
   Future<List<Task>> getTasks();
 
   @GET("/todo/{id}")
-  Future<Task> getTask(@Path("id") int id);
+  Future<Task> getTask(@Path("id") String id);
 
   @POST("/todo")
   Future<Task> saveTask(@Body() Task task);
+
+  @POST("/todo/{id}")
+  Future<Task> updateTask(@Path("id") String id, @Body() Task task);
 }

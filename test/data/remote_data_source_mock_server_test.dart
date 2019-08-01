@@ -22,20 +22,20 @@ void main() {
       ..httpCode = 200
       ..body = json.encode([
         {
-          "id": 100,
+          "id": "100",
           "title": "hello",
           "content": "content",
           "completed": true,
         },
         {
-          "id": 101,
+          "id": "101",
           "title": "world",
           "content": "content",
           "completed": false,
         }
       ])
       ..headers = {"Content-Type": "application/json"};
-    server.addResponse("/tasks", res);
+    server.addResponse("/todo", res);
     final list = await remote.getTasks();
     expect(list, isNotNull);
     expect(list, isA<List<Task>>());

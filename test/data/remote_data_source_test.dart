@@ -22,7 +22,7 @@ void main() {
 
   test("get task detail", () async {
     final task = mockTaskDetail();
-    final it = await remote.getTask(200);
+    final it = await remote.getTask("200");
     expect(it, isA<Task>());
     expect(it.id, task["id"]);
     expect(it.title, task["title"]);

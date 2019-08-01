@@ -24,7 +24,7 @@ class RemoteDataSource implements TasksDataSource {
   }
 
   @override
-  Future<Task> getTask(int id) {
+  Future<Task> getTask(String id) {
     return _api.getTask(id);
   }
 
@@ -40,7 +40,6 @@ class RemoteDataSource implements TasksDataSource {
 
   @override
   Future<void> updateTask(Task task) {
-    // TODO: implement updateTask
-    return null;
+    return _api.updateTask(task.id, task);
   }
 }

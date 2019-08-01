@@ -15,4 +15,9 @@ class TasksRepositoryImpl implements TasksRepository {
   Future<Task> saveTask(Task task) {
     return remote.saveTask(task);
   }
+
+  @override
+  Future<Task> updateTask(Task task) {
+    return remote.updateTask(task);
+  }
 }

@@ -13,6 +13,11 @@ class FakeTaskRepository implements TasksRepository {
   Future<Task> saveTask(Task task) {
     return Future.value(Task.fromJson(taskDetail));
   }
+
+  @override
+  Future<Task> updateTask(Task task) {
+    return null;
+  }
 }
 
 class EmptyTaskRepository extends FakeTaskRepository {
