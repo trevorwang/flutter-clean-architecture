@@ -74,3 +74,4 @@
 .project
 .classpath
 coverage
+ios/Flutter/flutter_export_environment.sh
