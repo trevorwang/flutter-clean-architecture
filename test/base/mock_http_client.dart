@@ -23,10 +23,9 @@ Map<String, dynamic> mockTaskDetail() {
 
 void mockSuccess(final String result) {
   when(mockClient.fetch(any, any, any)).thenAnswer((_) {
-    final res = ResponseBody.fromString(result, 200,
-        headers: DioHttpHeaders.fromMap({
-          HttpHeaders.contentTypeHeader: ContentType.json,
-        }));
+    final res = ResponseBody.fromString(result, 200, headers: {
+      HttpHeaders.contentTypeHeader: [ContentType.json.toString()],
+    });
     return Future.value(res);
   });
 }
