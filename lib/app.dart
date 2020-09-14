@@ -1,6 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart' hide Action, Page;
 import 'package:flutter_todo/data/tasks_repository.dart';
 import 'package:flutter_todo/pages/tasks_page/page.dart';
 
