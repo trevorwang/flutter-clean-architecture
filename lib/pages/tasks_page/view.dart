@@ -33,18 +33,20 @@ Widget buildView(TasksState state, Dispatch dispatch, ViewService viewService) {
                         dispatch(TasksActionCreator.loadTasks(state.tasks));
                       },
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          task.title,
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          task.content ?? "",
-                          style: TextStyle(color: Colors.black54),
-                        )
-                      ],
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            task.title,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            task.content ?? "",
+                            style: TextStyle(color: Colors.black54),
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ),
